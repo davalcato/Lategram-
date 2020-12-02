@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>129645554342-insg4olvj4rg0p1u2eui03ic1vbkn6ek.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.129645554342-insg4olvj4rg0p1u2eui03ic1vbkn6ek</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC3pyG5aMgesl6QgjGr14vuQ47nZQh6qLY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>129645554342</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Me2.Lategram</string>
+	<key>PROJECT_ID</key>
+	<string>lategram-ca61e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lategram-ca61e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:129645554342:ios:f0bfea8475df4e01002267</string>
+	<key>DATABASE_URL</key>
+	<string>https://lategram-ca61e.firebaseio.com</string>
+</dict>
+</plist>

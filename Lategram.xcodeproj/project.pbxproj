@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,7 @@
 		75481DA3257755ED00FCE09D /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75481DA2257755ED00FCE09D /* SearchResultViewController.swift */; };
 		75481DA52577563800FCE09D /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75481DA42577563800FCE09D /* PostEditorViewController.swift */; };
 		75481DA72577566900FCE09D /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75481DA62577566900FCE09D /* PublishPostViewController.swift */; };
+		75481DA92577712800FCE09D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75481DA82577712800FCE09D /* GoogleService-Info.plist */; };
 		9D9461AB8897A99622F9408A /* Pods_Lategram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4BC640E8FAF5181082BBAB /* Pods_Lategram.framework */; };
 		D3FA523288828AE0A979698F /* Pods_Lategram_LategramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32233ADE7107C86E62115FF6 /* Pods_Lategram_LategramUITests.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		75481DA2257755ED00FCE09D /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		75481DA42577563800FCE09D /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		75481DA62577566900FCE09D /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
+		75481DA82577712800FCE09D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		880AA36BACAE19A370B5F517 /* Pods-Lategram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram.release.xcconfig"; path = "Target Support Files/Pods-Lategram/Pods-Lategram.release.xcconfig"; sourceTree = "<group>"; };
 		8972EE418769759943D399B4 /* Pods-Lategram-LategramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram-LategramUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lategram-LategramUITests/Pods-Lategram-LategramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F01D8B2DB1CE0007D097D8B /* Pods-Lategram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram.debug.xcconfig"; path = "Target Support Files/Pods-Lategram/Pods-Lategram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		75474F63257748F500BDF2D5 /* Lategram */ = {
 			isa = PBXGroup;
 			children = (
+				75481DA82577712800FCE09D /* GoogleService-Info.plist */,
 				75481D872577505B00FCE09D /* Resources */,
 				75481D862577504500FCE09D /* Models */,
 				75481D852577503700FCE09D /* Views */,
@@ -240,14 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				75481D932577549000FCE09D /* Onboarding */,
-				75481D982577552400FCE09D /* PostViewController.swift */,
-				75481D9A2577555300FCE09D /* EditProfileViewController.swift */,
-				75481D9C2577557A00FCE09D /* SettingsViewController.swift */,
-				75481D9E257755AC00FCE09D /* ListViewController.swift */,
-				75481DA0257755CF00FCE09D /* SearchViewController.swift */,
-				75481DA2257755ED00FCE09D /* SearchResultViewController.swift */,
-				75481DA42577563800FCE09D /* PostEditorViewController.swift */,
-				75481DA62577566900FCE09D /* PublishPostViewController.swift */,
+				75481DAA2577765F00FCE09D /* General */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -261,6 +257,21 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		75481DAA2577765F00FCE09D /* General */ = {
+			isa = PBXGroup;
+			children = (
+				75481D982577552400FCE09D /* PostViewController.swift */,
+				75481D9A2577555300FCE09D /* EditProfileViewController.swift */,
+				75481D9C2577557A00FCE09D /* SettingsViewController.swift */,
+				75481D9E257755AC00FCE09D /* ListViewController.swift */,
+				75481DA0257755CF00FCE09D /* SearchViewController.swift */,
+				75481DA2257755ED00FCE09D /* SearchResultViewController.swift */,
+				75481DA42577563800FCE09D /* PostEditorViewController.swift */,
+				75481DA62577566900FCE09D /* PublishPostViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		CA7C68E083C2E3C9B5B1622A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +282,6 @@
 				A45EE17C2846AB70A57B5CDF /* Pods-LategramTests.debug.xcconfig */,
 				A2077EEF3DDA36E8563CC73F /* Pods-LategramTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -384,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75474F71257748F800BDF2D5 /* LaunchScreen.storyboard in Resources */,
+				75481DA92577712800FCE09D /* GoogleService-Info.plist in Resources */,
 				75474F6E257748F800BDF2D5 /* Assets.xcassets in Resources */,
 				75474F6C257748F500BDF2D5 /* Main.storyboard in Resources */,
 			);
