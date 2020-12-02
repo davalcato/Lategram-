@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FFF15F0AFBEFB12A014B101 /* Pods_LategramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8960CCE43A6A4C3F2D5365 /* Pods_LategramTests.framework */; };
 		75474F65257748F500BDF2D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F64257748F500BDF2D5 /* AppDelegate.swift */; };
 		75474F67257748F500BDF2D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F66257748F500BDF2D5 /* SceneDelegate.swift */; };
 		75474F69257748F500BDF2D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F68257748F500BDF2D5 /* HomeViewController.swift */; };
@@ -29,6 +30,8 @@
 		75481DA3257755ED00FCE09D /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75481DA2257755ED00FCE09D /* SearchResultViewController.swift */; };
 		75481DA52577563800FCE09D /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75481DA42577563800FCE09D /* PostEditorViewController.swift */; };
 		75481DA72577566900FCE09D /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75481DA62577566900FCE09D /* PublishPostViewController.swift */; };
+		9D9461AB8897A99622F9408A /* Pods_Lategram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4BC640E8FAF5181082BBAB /* Pods_Lategram.framework */; };
+		D3FA523288828AE0A979698F /* Pods_Lategram_LategramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32233ADE7107C86E62115FF6 /* Pods_Lategram_LategramUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E4BC640E8FAF5181082BBAB /* Pods_Lategram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lategram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32233ADE7107C86E62115FF6 /* Pods_Lategram_LategramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lategram_LategramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D8960CCE43A6A4C3F2D5365 /* Pods_LategramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LategramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75474F61257748F500BDF2D5 /* Lategram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lategram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75474F64257748F500BDF2D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75474F66257748F500BDF2D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +83,12 @@
 		75481DA2257755ED00FCE09D /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		75481DA42577563800FCE09D /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		75481DA62577566900FCE09D /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
+		880AA36BACAE19A370B5F517 /* Pods-Lategram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram.release.xcconfig"; path = "Target Support Files/Pods-Lategram/Pods-Lategram.release.xcconfig"; sourceTree = "<group>"; };
+		8972EE418769759943D399B4 /* Pods-Lategram-LategramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram-LategramUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lategram-LategramUITests/Pods-Lategram-LategramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F01D8B2DB1CE0007D097D8B /* Pods-Lategram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram.debug.xcconfig"; path = "Target Support Files/Pods-Lategram/Pods-Lategram.debug.xcconfig"; sourceTree = "<group>"; };
+		A2077EEF3DDA36E8563CC73F /* Pods-LategramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LategramTests.release.xcconfig"; path = "Target Support Files/Pods-LategramTests/Pods-LategramTests.release.xcconfig"; sourceTree = "<group>"; };
+		A45EE17C2846AB70A57B5CDF /* Pods-LategramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LategramTests.debug.xcconfig"; path = "Target Support Files/Pods-LategramTests/Pods-LategramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D237E2943699161F125BF15B /* Pods-Lategram-LategramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram-LategramUITests.release.xcconfig"; path = "Target Support Files/Pods-Lategram-LategramUITests/Pods-Lategram-LategramUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9461AB8897A99622F9408A /* Pods_Lategram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FFF15F0AFBEFB12A014B101 /* Pods_LategramTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,12 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FA523288828AE0A979698F /* Pods_Lategram_LategramUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A58395BF2630F16C3BF6E34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E4BC640E8FAF5181082BBAB /* Pods_Lategram.framework */,
+				32233ADE7107C86E62115FF6 /* Pods_Lategram_LategramUITests.framework */,
+				4D8960CCE43A6A4C3F2D5365 /* Pods_LategramTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		75474F58257748F500BDF2D5 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +136,8 @@
 				75474F7A257748F800BDF2D5 /* LategramTests */,
 				75474F85257748F800BDF2D5 /* LategramUITests */,
 				75474F62257748F500BDF2D5 /* Products */,
+				CA7C68E083C2E3C9B5B1622A /* Pods */,
+				4A58395BF2630F16C3BF6E34 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +261,20 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		CA7C68E083C2E3C9B5B1622A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F01D8B2DB1CE0007D097D8B /* Pods-Lategram.debug.xcconfig */,
+				880AA36BACAE19A370B5F517 /* Pods-Lategram.release.xcconfig */,
+				8972EE418769759943D399B4 /* Pods-Lategram-LategramUITests.debug.xcconfig */,
+				D237E2943699161F125BF15B /* Pods-Lategram-LategramUITests.release.xcconfig */,
+				A45EE17C2846AB70A57B5CDF /* Pods-LategramTests.debug.xcconfig */,
+				A2077EEF3DDA36E8563CC73F /* Pods-LategramTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75474F8B257748F800BDF2D5 /* Build configuration list for PBXNativeTarget "Lategram" */;
 			buildPhases = (
+				299EB661DD3511CE43F86D02 /* [CP] Check Pods Manifest.lock */,
 				75474F5D257748F500BDF2D5 /* Sources */,
 				75474F5E257748F500BDF2D5 /* Frameworks */,
 				75474F5F257748F500BDF2D5 /* Resources */,
+				0D71167B277F998CA72B8158 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +301,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75474F8E257748F800BDF2D5 /* Build configuration list for PBXNativeTarget "LategramTests" */;
 			buildPhases = (
+				17472D980C4DAFC0A14146B5 /* [CP] Check Pods Manifest.lock */,
 				75474F73257748F800BDF2D5 /* Sources */,
 				75474F74257748F800BDF2D5 /* Frameworks */,
 				75474F75257748F800BDF2D5 /* Resources */,
@@ -276,9 +320,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75474F91257748F800BDF2D5 /* Build configuration list for PBXNativeTarget "LategramUITests" */;
 			buildPhases = (
+				544F1002ECF951F877FED259 /* [CP] Check Pods Manifest.lock */,
 				75474F7E257748F800BDF2D5 /* Sources */,
 				75474F7F257748F800BDF2D5 /* Frameworks */,
 				75474F80257748F800BDF2D5 /* Resources */,
+				1B4D1892B9BFDDB974896F02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -358,6 +404,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D71167B277F998CA72B8158 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lategram/Pods-Lategram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lategram/Pods-Lategram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lategram/Pods-Lategram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17472D980C4DAFC0A14146B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LategramTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B4D1892B9BFDDB974896F02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lategram-LategramUITests/Pods-Lategram-LategramUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lategram-LategramUITests/Pods-Lategram-LategramUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lategram-LategramUITests/Pods-Lategram-LategramUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		299EB661DD3511CE43F86D02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lategram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		544F1002ECF951F877FED259 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lategram-LategramUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75474F5D257748F500BDF2D5 /* Sources */ = {
@@ -553,6 +702,7 @@
 		};
 		75474F8C257748F800BDF2D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F01D8B2DB1CE0007D097D8B /* Pods-Lategram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -572,6 +722,7 @@
 		};
 		75474F8D257748F800BDF2D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 880AA36BACAE19A370B5F517 /* Pods-Lategram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -591,6 +742,7 @@
 		};
 		75474F8F257748F800BDF2D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A45EE17C2846AB70A57B5CDF /* Pods-LategramTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -613,6 +765,7 @@
 		};
 		75474F90257748F800BDF2D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2077EEF3DDA36E8563CC73F /* Pods-LategramTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -635,6 +788,7 @@
 		};
 		75474F92257748F800BDF2D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8972EE418769759943D399B4 /* Pods-Lategram-LategramUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -655,6 +809,7 @@
 		};
 		75474F93257748F800BDF2D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D237E2943699161F125BF15B /* Pods-Lategram-LategramUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -6,6 +6,13 @@ target 'Lategram' do
   use_frameworks!
 
   # Pods for Lategram
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Crashlytics'
+
+
+
 
   target 'LategramTests' do
     inherit! :search_paths
