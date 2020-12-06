@@ -100,7 +100,8 @@ class LoginViewController: UIViewController {
         // assign frames here...
         
         headerView.frame = CGRect(
-            x: 0, y: view.safeAreaInsets.top,
+            x: 0,
+            y: 0.0,
             width: view.width,
             height: view.height/3.0)
         
@@ -120,7 +121,15 @@ class LoginViewController: UIViewController {
         }
         
         backgroundview.frame = headerView.bounds
+        
         // Here is where the gradien logo will go...
+        let imageView = UIImageView(image: UIImage(named: "text"))
+        headerView.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 0,
+                                 y: view.safeAreaInsets.top,
+                                 width: headerView.width,
+                                 height: headerView.height - view.safeAreaInsets.top)
         
     }
     
