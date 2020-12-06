@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
     private let headerView: UIView = {
         let header = UIView()
         header.clipsToBounds = true
-        let backgroundImageView = UIImageView(image: UIImage(contentsOfFile:"gradient"))
+        let backgroundImageView = UIImageView(image: UIImage(named: "gradient"))
         header.addSubview(backgroundImageView)
         return header
     }()
@@ -112,6 +112,15 @@ class LoginViewController: UIViewController {
             
             return
         }
+        
+        guard let backgroundview = headerView.subviews.first else {
+           
+            return
+            
+        }
+        
+        backgroundview.frame = headerView.bounds
+        // Here is where the gradien logo will go...
         
     }
     
