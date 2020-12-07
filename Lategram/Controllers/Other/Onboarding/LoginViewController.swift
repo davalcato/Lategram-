@@ -105,6 +105,32 @@ class LoginViewController: UIViewController {
             width: view.width,
             height: view.height/3.0)
         
+        usernameEmailField.frame = CGRect(
+            x: 25,
+            y: headerView.bottom + 10,
+            width: view.width-50,
+            height: 52.0)
+        
+        passwordField.frame = CGRect(
+            x: 25,
+            y: usernameEmailField.bottom + 10,
+            width: view.width-50,
+            height: 52.0)
+        
+        loginButton.frame = CGRect(
+            x: 25,
+            y: passwordField.bottom + 10,
+            width: view.width-50,
+            height: 52.0)
+        
+        createAccountButton.frame = CGRect(
+            x: 25,
+            y: loginButton.bottom + 10,
+            width: view.width-50,
+            height: 52.0)
+        
+        
+        
         configurationHeaderView()
     }
     
