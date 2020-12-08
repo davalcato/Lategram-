@@ -11,6 +11,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    
     // putting the cornerRadius numbers into constants...
     
     struct Constants {
@@ -279,7 +280,9 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButton(){
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
     
 }
