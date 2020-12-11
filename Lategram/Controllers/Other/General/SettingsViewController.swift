@@ -59,7 +59,29 @@ final class SettingsViewController: UIViewController {
     }
     
     private func didTapLogOut() {
-        
+        // Here we show an action sheet to logout...
+        AuthManager.shared.logOut(completion: { success in
+            
+            // If the signOut successfully we present the logIN screen...
+            DispatchQueue.main.async {
+                if success {
+                    // present log in...
+                    let loginVC = LoginViewController()
+                    loginVC.modalPresentationStyle = .fullScreen
+                    self.present(loginVC, animated: true) {
+                        
+                        
+                    }
+                   
+                }
+                // Otherwise something went wrong...
+                else {
+                    // error occurred...
+                    
+                }
+            }
+            
+        })
         
     }
     
@@ -89,8 +111,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         data[indexPath.section][indexPath.row].handler()
         
         // Handle cell selection here...
-        
-        
     }
     
 }
