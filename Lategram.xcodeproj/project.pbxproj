@@ -35,6 +35,10 @@
 		755CAB6D257D6C45007501FA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAB6C257D6C45007501FA /* AuthManager.swift */; };
 		755CAB6F257D6CB9007501FA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAB6E257D6CB9007501FA /* StorageManager.swift */; };
 		755CAB71257D74D7007501FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAB70257D74D7007501FA /* Extensions.swift */; };
+		75DBDC7B258321E400E1946F /* IGFeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBDC7A258321E400E1946F /* IGFeedPostTableViewCell.swift */; };
+		75DBDC7E2583255100E1946F /* IGFeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBDC7D2583255100E1946F /* IGFeedPostHeaderTableViewCell.swift */; };
+		75DBDC802583259000E1946F /* IGFeedPostActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBDC7F2583259000E1946F /* IGFeedPostActionsTableViewCell.swift */; };
+		75DBDC82258325CC00E1946F /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBDC81258325CC00E1946F /* IGFeedPostGeneralTableViewCell.swift */; };
 		9D9461AB8897A99622F9408A /* Pods_Lategram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4BC640E8FAF5181082BBAB /* Pods_Lategram.framework */; };
 		D3FA523288828AE0A979698F /* Pods_Lategram_LategramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32233ADE7107C86E62115FF6 /* Pods_Lategram_LategramUITests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +97,10 @@
 		755CAB6C257D6C45007501FA /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		755CAB6E257D6CB9007501FA /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		755CAB70257D74D7007501FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		75DBDC7A258321E400E1946F /* IGFeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostTableViewCell.swift; sourceTree = "<group>"; };
+		75DBDC7D2583255100E1946F /* IGFeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		75DBDC7F2583259000E1946F /* IGFeedPostActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionsTableViewCell.swift; sourceTree = "<group>"; };
+		75DBDC81258325CC00E1946F /* IGFeedPostGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostGeneralTableViewCell.swift; sourceTree = "<group>"; };
 		880AA36BACAE19A370B5F517 /* Pods-Lategram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram.release.xcconfig"; path = "Target Support Files/Pods-Lategram/Pods-Lategram.release.xcconfig"; sourceTree = "<group>"; };
 		8972EE418769759943D399B4 /* Pods-Lategram-LategramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram-LategramUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lategram-LategramUITests/Pods-Lategram-LategramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F01D8B2DB1CE0007D097D8B /* Pods-Lategram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lategram.debug.xcconfig"; path = "Target Support Files/Pods-Lategram/Pods-Lategram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 		75481D852577503700FCE09D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75DBDC792583219100E1946F /* Cells */,
 				75474F6D257748F800BDF2D5 /* Assets.xcassets */,
 				75481D88257750D800FCE09D /* Storyboards */,
 			);
@@ -282,6 +291,25 @@
 				75481DA62577566900FCE09D /* PublishPostViewController.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		75DBDC792583219100E1946F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				75DBDC7C2583251000E1946F /* Home Feed */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		75DBDC7C2583251000E1946F /* Home Feed */ = {
+			isa = PBXGroup;
+			children = (
+				75DBDC7A258321E400E1946F /* IGFeedPostTableViewCell.swift */,
+				75DBDC7D2583255100E1946F /* IGFeedPostHeaderTableViewCell.swift */,
+				75DBDC7F2583259000E1946F /* IGFeedPostActionsTableViewCell.swift */,
+				75DBDC81258325CC00E1946F /* IGFeedPostGeneralTableViewCell.swift */,
+			);
+			path = "Home Feed";
 			sourceTree = "<group>";
 		};
 		CA7C68E083C2E3C9B5B1622A /* Pods */ = {
@@ -542,19 +570,23 @@
 				75481D8C2577527100FCE09D /* CameraViewController.swift in Sources */,
 				75474F69257748F500BDF2D5 /* HomeViewController.swift in Sources */,
 				75481D97257754D900FCE09D /* RegistrationViewController.swift in Sources */,
+				75DBDC7E2583255100E1946F /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				75481DA52577563800FCE09D /* PostEditorViewController.swift in Sources */,
 				755CAB6F257D6CB9007501FA /* StorageManager.swift in Sources */,
 				75481D992577552400FCE09D /* PostViewController.swift in Sources */,
 				75481DAC257777C000FCE09D /* DatabaseManager.swift in Sources */,
 				75481D8E2577533B00FCE09D /* NotificationsViewController.swift in Sources */,
+				75DBDC7B258321E400E1946F /* IGFeedPostTableViewCell.swift in Sources */,
 				75481DA3257755ED00FCE09D /* SearchResultViewController.swift in Sources */,
 				75481D95257754A800FCE09D /* LoginViewController.swift in Sources */,
 				755CAB71257D74D7007501FA /* Extensions.swift in Sources */,
+				75DBDC82258325CC00E1946F /* IGFeedPostGeneralTableViewCell.swift in Sources */,
 				75481DA1257755CF00FCE09D /* SearchViewController.swift in Sources */,
 				75481D902577535600FCE09D /* ProfileViewController.swift in Sources */,
 				755CAB6D257D6C45007501FA /* AuthManager.swift in Sources */,
 				75474F65257748F500BDF2D5 /* AppDelegate.swift in Sources */,
 				75474F67257748F500BDF2D5 /* SceneDelegate.swift in Sources */,
+				75DBDC802583259000E1946F /* IGFeedPostActionsTableViewCell.swift in Sources */,
 				75481D9F257755AC00FCE09D /* ListViewController.swift in Sources */,
 				75481D9D2577557A00FCE09D /* SettingsViewController.swift in Sources */,
 			);

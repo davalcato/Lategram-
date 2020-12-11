@@ -47,15 +47,41 @@ final class SettingsViewController: UIViewController {
     }
     
     private func configureModels() {
-        
         // weak self here so not to cause a memory leak...
-        let section = [
+        data.append([
+            SettingCellModel(title: "Edit Profile") { [weak self] in
+            
+            },
+            
+            SettingCellModel(title: "Invite Friends") { [weak self] in
+            
+            },
+            
+            SettingCellModel(title: "Save Original Posts") { [weak self] in
+            
+            }
+        ])
+        
+        data.append([
+            SettingCellModel(title: "Terms Of Services") { [weak self] in
+            
+            },
+            
+            SettingCellModel(title: "Privacy Policy") { [weak self] in
+            
+            },
+            
+            SettingCellModel(title: "Help / Feedback") { [weak self] in
+            
+            }
+        ])
+       
+        data.append([
             SettingCellModel(title: "Log Out") { [weak self] in
                 self?.didTapLogOut()
                 
             }
-        ]
-        data.append(section)
+        ])
     }
     
     private func didTapLogOut() {
