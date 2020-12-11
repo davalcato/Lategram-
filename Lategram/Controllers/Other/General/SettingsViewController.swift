@@ -59,29 +59,47 @@ final class SettingsViewController: UIViewController {
     }
     
     private func didTapLogOut() {
-        // Here we show an action sheet to logout...
-        AuthManager.shared.logOut(completion: { success in
-            
-            // If the signOut successfully we present the logIN screen...
-            DispatchQueue.main.async {
-                if success {
-                    // present log in...
-                    let loginVC = LoginViewController()
-                    loginVC.modalPresentationStyle = .fullScreen
-                    self.present(loginVC, animated: true) {
-                        
+        // create action sheet here...
+        let actionsheet = UIAlertController(title: "Log Out",
+                                            message: "Are you sure you want to log out?",
+                                            preferredStyle: .actionSheet)
+        
+        // add the two button for the action sheet...
+        actionsheet.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        actionsheet.addAction(UIAlertAction(title: "Log Out",
+                                            style: .destructive,
+                                            handler: { _ in
+                                                
+            AuthManager.shared.logOut(completion: { success in
+                                                    
+                // If the signOut successfully we present the logIN screen...
+                DispatchQueue.main.async {
+                    if success {
+                        // present log in...
+                        let loginVC = LoginViewController()
+                        loginVC.modalPresentationStyle = .fullScreen
+                        self.present(loginVC, animated: true) {
+                            
+                            
+                        }
                         
                     }
-                   
+                    // Otherwise something went wrong...
+                    else {
+                        // error occurred...
+                        fatalError("Could not log out user!!!")
+                    }
                 }
-                // Otherwise something went wrong...
-                else {
-                    // error occurred...
-                    
-                }
-            }
-            
-        })
+                
+            })
+        }))
+        // So not to crash on the iPad...
+        actionsheet.popoverPresentationController?.sourceView = tableView
+        actionsheet.popoverPresentationController?.sourceRect = tableView.bounds
+        
+        present(actionsheet, animated: true)
         
     }
     
