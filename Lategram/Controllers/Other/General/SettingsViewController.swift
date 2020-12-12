@@ -4,7 +4,7 @@
 //
 //  Created by Daval Cato on 12/1/20.
 //
-
+import SafariServices
 import UIKit
 
 struct SettingCellModel {
@@ -50,28 +50,33 @@ final class SettingsViewController: UIViewController {
         // weak self here so not to cause a memory leak...
         data.append([
             SettingCellModel(title: "Edit Profile") { [weak self] in
-            
+                self?.didTapEditProfile()
             },
             
             SettingCellModel(title: "Invite Friends") { [weak self] in
+                self?.didTapInviteFriends()
             
             },
             
             SettingCellModel(title: "Save Original Posts") { [weak self] in
+                self?.didTapSaveOriginalPosts()
             
             }
         ])
         
         data.append([
             SettingCellModel(title: "Terms Of Services") { [weak self] in
+                self?.openURL(type: .terms)
             
             },
             
             SettingCellModel(title: "Privacy Policy") { [weak self] in
+                self?.openURL(type: .privacy)
             
             },
             
             SettingCellModel(title: "Help / Feedback") { [weak self] in
+                self?.openURL(type: .help)
             
             }
         ])
@@ -82,6 +87,49 @@ final class SettingsViewController: UIViewController {
                 
             }
         ])
+    }
+    
+    enum SettingsURLType {
+        case terms, privacy, help
+    }
+    
+    private func openURL(type: SettingsURLType) {
+        let urlString: String 
+        switch type {
+        case .terms: urlString = "https://www.gucci.com/us/en/st/legal-landing?gclid=Cj0KCQiAzsz-BRCCARIsANotFgMkzDpPVpTSk9_xl-1XE63ZqZgCGFiIrhs04N4GI6EzQwRhAWPvktcaAjmIEALw_wcB"
+        case .privacy: urlString = "https://www.gucci.com/us/en/st/privacy-landing"
+        case .help: urlString = "https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiD3e2cjMftAhUxBX0KHXXoCTkYABACGgJwdg&ae=2&ohost=www.google.com&cid=CAESQeD2TPDJCERfocWNpVDT7ESEhhN8bNOVbP12az_rTDttosuV93U5xFjFbdEtZryMKkmppUKmj2cBjK8oVNeLBuw4&sig=AOD64_3PTMOU3s11cEAfMc1aAe_NEh5auA&q&adurl&ved=2ahUKEwjttuScjMftAhWEJDQIHVGODuQQ0Qx6BAgGEAE&dct=1"
+   
+            
+        }
+        
+        guard let url = URL(string: urlString) else {
+            return
+            
+        }
+        
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+        
+    }
+    
+    private func didTapEditProfile() {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+        
+    }
+    
+    private func didTapInviteFriends() {
+        // Show share sheet to invite friends...
+        
+        
+    }
+    
+    private func didTapSaveOriginalPosts() {
+        
+        
     }
     
     private func didTapLogOut() {
@@ -144,6 +192,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
