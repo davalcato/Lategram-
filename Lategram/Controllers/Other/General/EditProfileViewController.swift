@@ -7,7 +7,14 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController, UITableViewDataSource {
+struct EditProfileFormModel {
+    let label: String
+    let placeholder: String
+    var value: String?
+
+}
+
+final class EditProfileViewController: UIViewController, UITableViewDataSource {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -16,9 +23,12 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
         return tableView
         
     }()
+    
+    private var models = [[EditProfileFormModel]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureModels()
         // Header view for this table here...
         tableView.tableHeaderView = createTableHeaderView()
         tableView.dataSource = self
@@ -36,6 +46,31 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
                                                             action: #selector(didTapCancel))
     }
     
+    private func configureModels() {
+        // name, username, website, and bio...
+        let section1Labels = ["Name", "Username", "Bio"]
+        var section1 = [EditProfileFormModel]()
+        for label in section1Labels {
+            let model = EditProfileFormModel(label: label,
+                                             placeholder: "Enter \(label)...",
+                                             value: nil)
+            section1.append(model)
+        }
+        models.append(section1)
+        
+        // private information email, phone, gender...
+        let section2Labels = ["Email", "Phone", "Gender"]
+        var section2 = [EditProfileFormModel]()
+        for label in section2Labels {
+            let model = EditProfileFormModel(label: label,
+                                             placeholder: "Enter \(label)...",
+                                             value: nil)
+            section2.append(model)
+        }
+        models.append(section2)
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -46,7 +81,7 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
     private func createTableHeaderView() -> UIView {
         
         // Integral rounds up all the values to the nears integer on floating points...
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.height/3).integral)
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.height/4).integral)
         
         // Button shows Profile picture
         let size = header.height/1.5
@@ -60,6 +95,7 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
         // Make button here circlar...
         profilePhotoButton.layer.masksToBounds = true
         profilePhotoButton.layer.cornerRadius = size/2.0
+        profilePhotoButton.tintColor = .label
         profilePhotoButton.addTarget(self,
                                      action: #selector(didTapProfilePhotoButton),
                                      for: .touchUpInside)
@@ -78,16 +114,17 @@ class EditProfileViewController: UIViewController, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return models[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = models[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Hello World"
+        cell.textLabel?.text = model.label
         
         return cell
     }
