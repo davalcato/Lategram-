@@ -100,7 +100,6 @@ final class SettingsViewController: UIViewController {
         case .privacy: urlString = "https://www.gucci.com/us/en/st/privacy-landing"
         case .help: urlString = "https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiD3e2cjMftAhUxBX0KHXXoCTkYABACGgJwdg&ae=2&ohost=www.google.com&cid=CAESQeD2TPDJCERfocWNpVDT7ESEhhN8bNOVbP12az_rTDttosuV93U5xFjFbdEtZryMKkmppUKmj2cBjK8oVNeLBuw4&sig=AOD64_3PTMOU3s11cEAfMc1aAe_NEh5auA&q&adurl&ved=2ahUKEwjttuScjMftAhWEJDQIHVGODuQQ0Qx6BAgGEAE&dct=1"
    
-            
         }
         
         guard let url = URL(string: urlString) else {
@@ -117,6 +116,7 @@ final class SettingsViewController: UIViewController {
         let vc = EditProfileViewController()
         vc.title = "Edit Profile"
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
         
     }

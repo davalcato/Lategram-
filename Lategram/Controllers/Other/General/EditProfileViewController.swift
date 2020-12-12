@@ -129,13 +129,13 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard section == 1 else {
             return nil
             
         }
         return "Private Information"
-        
+       
     }
     
     // MARK: - Action sheet here
