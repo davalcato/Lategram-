@@ -7,9 +7,23 @@
 
 import UIKit
 
-class FormTableViewCell: UITableViewCell, UITextFieldDelegate {
+// AnyObject so we can put a property on delegate: FormTableViewCellDelegate
+protocol FormTableViewCellDelegate: AnyObject {
+    func formTableViewCell( _ cell: FormTableViewCellDelegate, didUpdateField value: String?)
+
+}
+
+class FormTableViewCell: UITableViewCell, UITextFieldDelegate, FormTableViewCellDelegate {
+    func formTableViewCell( _ cell: FormTableViewCellDelegate, didUpdateField value: String?) {
+        
+        
+    }
+
     
     static let identifier = "FormTableViewCell"
+    
+    // Property of the AnyObject & weak var so not to cause a memory leak
+    public weak var delegate: FormTableViewCellDelegate?
     
     // Two subview here...
     private let formlabel: UILabel = {
@@ -34,18 +48,11 @@ class FormTableViewCell: UITableViewCell, UITextFieldDelegate {
         contentView.addSubview(formlabel)
         contentView.addSubview(field)
         field.delegate = self
+        selectionStyle = .none
         
         
     }
-    
-    // MARK: - Field
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    
-    
+   
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -78,8 +85,15 @@ class FormTableViewCell: UITableViewCell, UITextFieldDelegate {
                              y: 0,
                              width: contentView.width-10-formlabel.width,
                              height: contentView.height)
-        
-        
+    }
+    
+    
+    // MARK: - Field
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        delegate?.formTableViewCell(self, didUpdateField: textField.text)
+        textField.resignFirstResponder()
+        return true
     }
     
 }
