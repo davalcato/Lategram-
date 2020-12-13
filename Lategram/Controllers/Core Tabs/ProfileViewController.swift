@@ -77,7 +77,16 @@ final class ProfileViewController: UIViewController {
 
 }
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2 
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+            
+        }
+        
         return 30
     }
     
@@ -102,10 +111,18 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
         }
         
-        // This function gets get called for footer as well
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier, for: indexPath) as! ProfileInfoHeaderCollectionReusableView
+        // This function gets called for the footer as well
+        if indexPath.section == 1 {
+            // tabs header
+            let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as! ProfileTabsCollectionReusableView
+            
+            return tabControlHeader
+            
+        }
         
-        return header
+        let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier, for: indexPath) as! ProfileInfoHeaderCollectionReusableView
+        
+        return profileHeader
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -114,7 +131,8 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
         }
         
-        return .zero
+        // Size of section tabs
+        return CGSize(width: collectionView.width, height: 65)
     }
     
 }
