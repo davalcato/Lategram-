@@ -9,18 +9,16 @@ import UIKit
 
 // AnyObject so we can put a property on delegate: FormTableViewCellDelegate
 protocol FormTableViewCellDelegate: AnyObject {
-    func formTableViewCell( _ cell: FormTableViewCellDelegate, didUpdateField value: String?)
+    func formTableViewCell( _ cell: FormTableViewCell, didUpdateField updatedModel: EditProfileFormModel)
 
 }
 
-class FormTableViewCell: UITableViewCell, UITextFieldDelegate, FormTableViewCellDelegate {
-    func formTableViewCell( _ cell: FormTableViewCellDelegate, didUpdateField value: String?) {
-        
-        
-    }
+class FormTableViewCell: UITableViewCell, UITextFieldDelegate {
+   
 
-    
     static let identifier = "FormTableViewCell"
+    
+    private var model: EditProfileFormModel?
     
     // Property of the AnyObject & weak var so not to cause a memory leak
     public weak var delegate: FormTableViewCellDelegate?
@@ -58,6 +56,7 @@ class FormTableViewCell: UITableViewCell, UITextFieldDelegate, FormTableViewCell
     }
     
     public func configure(with model: EditProfileFormModel) {
+        self.model = model
         formlabel.text = model.label
         field.placeholder = model.placeholder
         field.text = model.value
@@ -91,9 +90,17 @@ class FormTableViewCell: UITableViewCell, UITextFieldDelegate, FormTableViewCell
     // MARK: - Field
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        delegate?.formTableViewCell(self, didUpdateField: textField.text)
+        model?.value = textField.text
+        guard let model = model else {
+            
+            return true
+        }
+        
+        delegate?.formTableViewCell(self, didUpdateField: model)
         textField.resignFirstResponder()
         return true
+
+        
     }
     
 }

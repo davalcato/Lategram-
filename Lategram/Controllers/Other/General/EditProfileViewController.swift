@@ -184,8 +184,11 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
 }
 // To get the value of what the user types in the profile
 extension EditProfileViewController: FormTableViewCellDelegate {
-    func formTableViewCell(_ cell: FormTableViewCellDelegate, didUpdateField value: String?) {
-        print("Field updated to: \(value ?? "nil")")
+    func formTableViewCell(_ cell: FormTableViewCell, didUpdateField updatedModel: EditProfileFormModel) {
+        updatedModel.label
+        print(updatedModel.value ?? "nil")
     }
+    
+    
     
 }
