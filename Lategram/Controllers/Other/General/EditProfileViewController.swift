@@ -143,7 +143,7 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
     
     @objc private func didTapSave() {
         // Save info to database
-        
+        dismiss(animated: true, completion: nil)
         
     }
     
