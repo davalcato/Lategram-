@@ -12,6 +12,8 @@ final class ProfileViewController: UIViewController {
     
     // optional so we can instantiate it to a flowlayout...
     private var collectionView: UICollectionView?
+    
+    private var userPosts = [UserPost]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,7 @@ final class ProfileViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
         
-        collectionView?.backgroundColor = .red
+        
         
         // Cell
         collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
@@ -87,12 +89,17 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
         }
         
+//        return userPosts.count
         return 30
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // At whatever row we're at
+//        let model = userPosts[indexPath.row]
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
         
+//        cell.configure(with: model)
         cell.configure(debug: "test")
         return cell
     }
@@ -100,6 +107,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     // Gets called when user taps on the post...
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        // Get the model and open post controller
+        // let model = userPosts[indexPath.row]
+        let vc = PostViewController(model: nil)
+        vc.title = "Post"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
