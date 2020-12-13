@@ -125,6 +125,7 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
         let model = models[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: FormTableViewCell.identifier, for: indexPath) as! FormTableViewCell
         cell.configure(with: model)
+        cell.delegate = self
         
         return cell
     }
@@ -180,6 +181,11 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
         present(actionSheet, animated: true)
         
     }
+}
+// To get the value of what the user types in the profile
+extension EditProfileViewController: FormTableViewCellDelegate {
+    func formTableViewCell(_ cell: FormTableViewCellDelegate, didUpdateField value: String?) {
+        print("Field updated to: \(value ?? "nil")")
+    }
     
-
 }
