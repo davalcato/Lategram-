@@ -66,7 +66,7 @@ class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         
         // Adding the subviews to the initizer
         addSubviews()
-        backgroundColor = .systemBlue
+        backgroundColor = .systemBackground
         clipsToBounds = true
         
     }
@@ -104,7 +104,7 @@ class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         
         
         let buttonHeight = profilePhotoSize/2
-        let countButtonWidth = width-10-profilePhotoSize
+        let countButtonWidth = (width-10-profilePhotoSize)/3
         
         postsButton.frame = CGRect(
             x: profilePhotoImageView.rigth,
