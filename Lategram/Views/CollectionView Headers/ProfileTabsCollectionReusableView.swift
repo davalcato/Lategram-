@@ -18,6 +18,11 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     
     public weak var delegate: ProfileTabsCollectionReusableViewDelegate?
     
+    // This controls the size the padding 
+    struct Constants {
+        static let padding: CGFloat = 4
+}
+    
     // Two buttons 1 for the tags and the 2 button for the grid
     private let gridButton: UIButton = {
         let button = UIButton()
@@ -32,7 +37,7 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     private let taggedButton: UIButton = {
         let button = UIButton()
         button.clipsToBounds = true
-        button.tintColor = .secondarySystemBackground
+        button.tintColor = .lightGray
         button.setBackgroundImage(UIImage(systemName: "tag"), for: .normal)
         
         return button
@@ -72,16 +77,16 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     // Laying subviews
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size = height-4
+        let size = height - (Constants.padding * 2)
         let gridButtonX = ((width/2)-size)/2
         
         gridButton.frame = CGRect(x: gridButtonX,
-                                    y: 2,
+                                  y: Constants.padding,
                                     width: size,
                                     height: size)
         
         taggedButton.frame = CGRect(x: gridButtonX + (width/2),
-                                    y: 2,
+                                    y: Constants.padding,
                                     width: size,
                                     height: size)
         

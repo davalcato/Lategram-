@@ -148,7 +148,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         
         // Size of section tabs
-        return CGSize(width: collectionView.width, height: 65)
+        return CGSize(width: collectionView.width, height: 50)
     }
     
 }
