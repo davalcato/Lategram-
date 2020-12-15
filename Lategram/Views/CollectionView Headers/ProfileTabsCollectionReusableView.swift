@@ -20,7 +20,7 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     
     // This controls the size the padding 
     struct Constants {
-        static let padding: CGFloat = 4
+        static let padding: CGFloat = 8
 }
     
     // Two buttons 1 for the tags and the 2 button for the grid
@@ -61,11 +61,19 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     }
     
     @objc private func didTapGridButton() {
+        
+        // Change the buttons color here
+        gridButton.tintColor = .systemBlue
+        taggedButton.tintColor = .lightGray
+        
         delegate?.didTapGridButtonTab()
         
     }
     
     @objc private func didTapTaggedButton() {
+        gridButton.tintColor = .lightGray
+        taggedButton.tintColor = .systemBlue
+        
         delegate?.didTapTaggedButtonTab()
     }
     

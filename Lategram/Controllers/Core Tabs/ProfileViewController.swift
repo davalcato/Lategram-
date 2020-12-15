@@ -130,6 +130,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             // tabs header
             let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as! ProfileTabsCollectionReusableView
             
+            // Hooking up the delegate for the tag & grid
+            tabControlHeader.delegate = self
+            
             return tabControlHeader
             
         }
@@ -185,6 +188,21 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     
 }
 
+// adding the delegate to the buttons
+extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
+    func didTapGridButtonTab() {
+        // Reload collection view with data
+        
+        
+    }
+    
+    func didTapTaggedButtonTab() {
+        // Reload collection view with data
+        
+        
+    }
+    
+}
 
 
 
