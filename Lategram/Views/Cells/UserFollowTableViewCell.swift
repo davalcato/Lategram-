@@ -10,7 +10,20 @@ import UIKit
 // Adding the Delegate here and having it conform to AnyObject/ otherwise you can't be a weak property
 protocol UserFollowTableViewCellDelegate: AnyObject {
     // Passing in the model here
-    func didTapFollowUnfollowButton(model: String)
+    func didTapFollowUnfollowButton(model: UserRelationship)
+}
+
+// Things to configure (username, button, and profileImageView) goes here...
+enum FollowState {
+    case following, not_following
+    
+}
+
+struct UserRelationship {
+    let username: String
+    let name: String
+    let type: FollowState
+    
 }
 
 class UserFollowTableViewCell: UITableViewCell {
@@ -19,6 +32,9 @@ class UserFollowTableViewCell: UITableViewCell {
     
     // The weak delegate here
     weak var delegate: UserFollowTableViewCellDelegate?
+    
+    // Holding on to the model here from the configure(with model:
+    private var model: UserRelationship?
     
     // Add subviews here
     private let profileImageView: UIImageView = {
@@ -71,10 +87,44 @@ class UserFollowTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(followButton)
         
+        // Hooking up the button here
+        followButton.addTarget(self,
+                               action: #selector(didTapFollowButton),
+                               for: .touchUpInside)
+        
     }
     
-    public func configure(with model: String) {
+    @objc private func didTapFollowButton() {
+        guard let model = model else {
+            return
+            
+            
+        }
         
+        delegate?.didTapFollowUnfollowButton(model: model)
+        
+    }
+    
+    public func configure(with model: UserRelationship) {
+        self.model = model
+        nameLabel.text = model.name
+        usernameLabel.text = model.username
+        switch model.type {
+        case .following:
+            // show unfollow button
+            followButton.setTitle("Unfollow", for: .normal)
+            followButton.setTitleColor(.label, for: .normal)
+            followButton.backgroundColor = .systemBackground
+            followButton.layer.borderWidth = 1
+            followButton.layer.borderColor = UIColor.label.cgColor
+        case .not_following:
+            // show follow button
+            followButton.setTitle("Follow", for: .normal)
+            followButton.setTitleColor(.white, for: .normal)
+            followButton.backgroundColor = .link
+            followButton.layer.borderWidth = 0
+        
+        }
         
     }
     
@@ -108,9 +158,9 @@ class UserFollowTableViewCell: UITableViewCell {
         // Reference the button size here
         let buttonWidth = contentView.width > 500 ? 220.0 : contentView.width/3
         followButton.frame = CGRect(x: contentView.width-5-buttonWidth,
-                                    y: 5,
+                                    y: (contentView.height-40)/2,
                                     width: buttonWidth,
-                                    height: contentView.height-10)
+                                    height: 40)
         
         
         // The two labels go here

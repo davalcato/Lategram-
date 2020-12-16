@@ -10,7 +10,8 @@ import UIKit
 class ListViewController: UIViewController {
     
     // Provide some data for the listViewController here
-    private let data: [String]
+    private let data: [UserRelationship]
+   
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -19,7 +20,9 @@ class ListViewController: UIViewController {
         
     }()
     
-    init(data: [String]) {
+    // MARK: - Init
+    
+    init(data: [UserRelationship]) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
         
@@ -56,10 +59,11 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         // We cast it (as! UserFollowTableViewCell) to call.configure here
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath) as! UserFollowTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier,
+                                                 for: indexPath) as! UserFollowTableViewCell
         
        // Calling the configure here
-        cell.configure(with: "")
+        cell.configure(with: data[indexPath.row])
         
         return cell
     }
