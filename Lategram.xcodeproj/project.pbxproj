@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5FFF15F0AFBEFB12A014B101 /* Pods_LategramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8960CCE43A6A4C3F2D5365 /* Pods_LategramTests.framework */; };
+		7526343B258A975000BD38EF /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7526343A258A975000BD38EF /* UserFollowTableViewCell.swift */; };
 		75474F65257748F500BDF2D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F64257748F500BDF2D5 /* AppDelegate.swift */; };
 		75474F67257748F500BDF2D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F66257748F500BDF2D5 /* SceneDelegate.swift */; };
 		75474F69257748F500BDF2D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F68257748F500BDF2D5 /* HomeViewController.swift */; };
@@ -69,6 +70,7 @@
 		2E4BC640E8FAF5181082BBAB /* Pods_Lategram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lategram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32233ADE7107C86E62115FF6 /* Pods_Lategram_LategramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lategram_LategramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8960CCE43A6A4C3F2D5365 /* Pods_LategramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LategramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7526343A258A975000BD38EF /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		75474F61257748F500BDF2D5 /* Lategram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lategram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75474F64257748F500BDF2D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75474F66257748F500BDF2D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				75DBDC7C2583251000E1946F /* Home Feed */,
 				75B9299B25858025000C0DEB /* FormTableViewCell.swift */,
 				75B9299E2585A179000C0DEB /* PhotoCollectionViewCell.swift */,
+				7526343A258A975000BD38EF /* UserFollowTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				75DBDC7E2583255100E1946F /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				75481DA52577563800FCE09D /* PostEditorViewController.swift in Sources */,
 				755CAB6F257D6CB9007501FA /* StorageManager.swift in Sources */,
+				7526343B258A975000BD38EF /* UserFollowTableViewCell.swift in Sources */,
 				75CB3A982586C56200B0DA07 /* Models.swift in Sources */,
 				75B9299C25858025000C0DEB /* FormTableViewCell.swift in Sources */,
 				75481D992577552400FCE09D /* PostViewController.swift in Sources */,

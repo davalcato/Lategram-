@@ -14,7 +14,7 @@ class ListViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UserFollowTableViewCell.self, forCellReuseIdentifier: UserFollowTableViewCell.identifier)
         return tableView
         
     }()
@@ -53,10 +53,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        // Assign its textfield here
-        cell.textLabel?.text = data[indexPath.row]
+        // We cast it (as! UserFollowTableViewCell) to call.configure here
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath) as! UserFollowTableViewCell
+        
+       // Calling the configure here
+        cell.configure(with: "")
         
         return cell
     }
