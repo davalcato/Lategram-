@@ -38,6 +38,7 @@ class UserFollowTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 17, weight: .semibold)
         label.text = "Joie Chavez"
+        label.textColor = .secondaryLabel
      
         return label
         
