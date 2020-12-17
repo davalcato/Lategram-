@@ -71,6 +71,11 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         switch model.type {
         case .like(let post):
             let thumbnail = post.thumbnailImage
+            guard !thumbnail.absoluteString.contains("google.com") else {
+                
+                return
+            }
+            
             postButton.sd_setBackgroundImage(with: thumbnail,
                                              for: .normal,
                                              completed: nil)
