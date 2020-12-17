@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5FFF15F0AFBEFB12A014B101 /* Pods_LategramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8960CCE43A6A4C3F2D5365 /* Pods_LategramTests.framework */; };
 		7526343B258A975000BD38EF /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7526343A258A975000BD38EF /* UserFollowTableViewCell.swift */; };
+		7526343D258AD13700BD38EF /* NoNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7526343C258AD13600BD38EF /* NoNotificationsView.swift */; };
 		75474F65257748F500BDF2D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F64257748F500BDF2D5 /* AppDelegate.swift */; };
 		75474F67257748F500BDF2D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F66257748F500BDF2D5 /* SceneDelegate.swift */; };
 		75474F69257748F500BDF2D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474F68257748F500BDF2D5 /* HomeViewController.swift */; };
@@ -71,6 +72,7 @@
 		32233ADE7107C86E62115FF6 /* Pods_Lategram_LategramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lategram_LategramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8960CCE43A6A4C3F2D5365 /* Pods_LategramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LategramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7526343A258A975000BD38EF /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
+		7526343C258AD13600BD38EF /* NoNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNotificationsView.swift; sourceTree = "<group>"; };
 		75474F61257748F500BDF2D5 /* Lategram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lategram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75474F64257748F500BDF2D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75474F66257748F500BDF2D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				75DBDC792583219100E1946F /* Cells */,
 				75474F6D257748F800BDF2D5 /* Assets.xcassets */,
 				75481D88257750D800FCE09D /* Storyboards */,
+				7526343C258AD13600BD38EF /* NoNotificationsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				75481D8C2577527100FCE09D /* CameraViewController.swift in Sources */,
 				75474F69257748F500BDF2D5 /* HomeViewController.swift in Sources */,
 				75481D97257754D900FCE09D /* RegistrationViewController.swift in Sources */,
+				7526343D258AD13700BD38EF /* NoNotificationsView.swift in Sources */,
 				75DBDC7E2583255100E1946F /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				75481DA52577563800FCE09D /* PostEditorViewController.swift in Sources */,
 				755CAB6F257D6CB9007501FA /* StorageManager.swift in Sources */,

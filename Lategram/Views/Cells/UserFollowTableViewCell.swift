@@ -86,6 +86,8 @@ class UserFollowTableViewCell: UITableViewCell {
         contentView.addSubview(usernameLabel)
         contentView.addSubview(profileImageView)
         contentView.addSubview(followButton)
+        // change the highlight of the selected button on the follower button
+        selectionStyle = .none
         
         // Hooking up the button here
         followButton.addTarget(self,
