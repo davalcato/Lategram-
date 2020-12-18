@@ -9,7 +9,8 @@ import UIKit
 
 // The controllers handles the delegate here
 protocol NotificationFollowEventTableViewCellDelegate: AnyObject {
-    func didTapFollowUnFollowButton(model: String)
+    // Update the delegate model to be UserNotification
+    func didTapFollowUnFollowButton(model: UserNotification)
 }
 
 class NotificationFollowEventTableViewCell: UITableViewCell {
@@ -18,10 +19,14 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     
     weak var delegate: NotificationFollowEventTableViewCellDelegate?
     
+    // Add the UserNotification model here as well
+    private var model: UserNotification?
+    
     // Add the subviews here...
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .tertiarySystemBackground
         imageView.contentMode = .scaleAspectFill
         
         return imageView
@@ -32,6 +37,7 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
+        label.text = "@Beyonce started following you!"
       
         return label
         
@@ -50,12 +56,36 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(label)
         contentView.addSubview(followButton)
+        followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
         
+    }
+    
+    @objc private func didTapFollowButton() {
+        guard let model = model else {
+            
+            return
+        }
+        // Using the delegate to say didTapFollowUnFollowButton
+        delegate?.didTapFollowUnFollowButton(model: model)
         
     }
     
     // Configure func to pass in a view model
-    public func configure(with model: String) {
+    public func configure(with model: UserNotification) {
+        // Retaining the model
+        self.model = model
+        
+        switch model.type {
+        case .like(_):
+            break
+        case .follow:
+          // configure button
+            break
+        
+        }
+        
+        label.text = model.text
+        profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
         
     }
     
@@ -71,6 +101,27 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // Layout subviews photo, text, phost button
+        profileImageView.frame = CGRect(x: 3,
+                                        y: 3,
+                                        width: contentView.height-6,
+                                        height: contentView.height-6)
+        
+        profileImageView.layer.cornerRadius = profileImageView.height/2
+        
+        
+        let size = contentView.height-4
+        followButton.frame = CGRect(x: contentView.width-5-size,
+                                  y: 2,
+                                  width: size,
+                                  height: size)
+        
+        label.frame = CGRect(x: profileImageView.rigth+5,
+                             y: 0,
+                             width: contentView.width-size-profileImageView.width-16,
+                             height: contentView.height)
+        
     }
     
     required init?(coder: NSCoder) {

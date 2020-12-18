@@ -18,7 +18,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     
     static let identifier = "NotificationLikeEventTableViewCell"
     
-    weak var delegate: NotificationFollowEventTableViewCellDelegate?
+    weak var delegate: NotificationLikeEventTableViewCellDelegate?
     
     // When called we will retain the model
     private var model: UserNotification?
@@ -60,6 +60,19 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(postButton)
         
+        // Add a target for when the post button is tapped
+        postButton.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
+        
+    }
+    
+    @objc private func didTapPostButton() {
+        // Guard if our model is not nil because we set it on this class
+        guard let model = model else {
+            
+            return
+        }
+        // If it's not nil use the delegate
+        delegate?.didTapRelatedPostButton(model: model)
         
     }
     
