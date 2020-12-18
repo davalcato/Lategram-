@@ -60,6 +60,8 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(followButton)
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
         configureForFollow()
+        // Changing the selected state here
+        selectionStyle = .none
         
     }
     

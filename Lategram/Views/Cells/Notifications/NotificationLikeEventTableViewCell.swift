@@ -28,7 +28,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .tertiarySystemBackground
         imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "test")
+//        imageView.image = UIImage(named: "test")
         imageView.contentMode = .scaleAspectFill
         
         return imageView
@@ -62,6 +62,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         
         // Add a target for when the post button is tapped
         postButton.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
+        selectionStyle = .none
         
     }
     
