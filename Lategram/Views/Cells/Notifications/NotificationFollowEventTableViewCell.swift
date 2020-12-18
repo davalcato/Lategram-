@@ -37,7 +37,7 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
-        label.text = "@Beyonce started following you!"
+        label.text = "@Beyonce followed you!"
       
         return label
         
@@ -72,14 +72,30 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     
     // Configure func to pass in a view model
     public func configure(with model: UserNotification) {
-        // Retaining the model
+        // Assigning the configure model
         self.model = model
         
         switch model.type {
         case .like(_):
             break
-        case .follow:
-          // configure button
+        case .follow(let state):
+          // Based of the state we'll configure button
+            switch state {
+            case .following:
+                // show unfollow button
+                followButton.setTitle("Unfollow", for: .normal)
+                followButton.setTitleColor(.label, for: .normal)
+                followButton.layer.borderWidth = 1
+                followButton.layer.borderColor = UIColor.secondaryLabel.cgColor
+            case .not_following:
+                // show follow button
+                followButton.setTitle("Follow", for: .normal)
+                followButton.setTitleColor(.white, for: .normal)
+                followButton.layer.borderWidth = 0
+                followButton.backgroundColor = .link
+                
+            }
+            
             break
         
         }
@@ -111,11 +127,13 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         profileImageView.layer.cornerRadius = profileImageView.height/2
         
         
-        let size = contentView.height-4
+        let size: CGFloat = 100
         followButton.frame = CGRect(x: contentView.width-5-size,
-                                  y: 2,
-                                  width: size,
-                                  height: size)
+                                    // So its vertically set
+                                    y: (contentView.height-44)/2,
+                                    width: size,
+                                    height: 44)
+        followButton.backgroundColor = .orange
         
         label.frame = CGRect(x: profileImageView.rigth+5,
                              y: 0,

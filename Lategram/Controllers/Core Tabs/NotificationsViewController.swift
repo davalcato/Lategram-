@@ -9,7 +9,8 @@ import UIKit
 
 enum UIUserNotificationType {
     case like(post: UserPost)
-    case follow
+    // If current follower is following back pass in State
+    case follow(state: FollowState)
 }
 
 struct UserNotification {
@@ -83,7 +84,7 @@ final class NotificationsViewController: UIViewController, UITableViewDelegate, 
                                 comments: [],
                                 createdDate: Date(),
                                 taggedUsers: [])
-            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow,
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following),
                                          text: "Hello Joie", user: User(username: "Joie",
                                                                         bio: "",
                                                                         name: (first: "", last: ""),
@@ -118,7 +119,7 @@ final class NotificationsViewController: UIViewController, UITableViewDelegate, 
             // Like cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTableViewCell.identifier, for: indexPath) as! NotificationLikeEventTableViewCell
             
-//            cell.configure(with: model)
+            cell.configure(with: model)
             // Assign the delegate here
             cell.delegate = self
             return cell 
@@ -126,7 +127,7 @@ final class NotificationsViewController: UIViewController, UITableViewDelegate, 
             // follow cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier, for: indexPath) as! NotificationFollowEventTableViewCell
             
-            cell.configure(with: model)
+//            cell.configure(with: model)
             cell.delegate = self
         return cell
         
@@ -150,7 +151,7 @@ extension NotificationsViewController: NotificationLikeEventTableViewCellDelegat
 // Conform to the other cells
 extension NotificationsViewController: NotificationFollowEventTableViewCellDelegate {
     func didTapFollowUnFollowButton(model: UserNotification) {
-        print("tapped button")
+        print("Tapped button")
         // perform database update
         
     }
