@@ -46,6 +46,8 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     // The follow button goes here...
     private let followButton: UIButton = {
         let button = UIButton()
+        button.layer.cornerRadius = 4
+        button.layer.masksToBounds = true
         return button
         
     }()
@@ -136,12 +138,14 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         
         
         let size: CGFloat = 100
+        let buttonHeight: CGFloat = 40
         followButton.frame = CGRect(x: contentView.width-5-size,
                                     // So its vertically set
-                                    y: (contentView.height-44)/2,
+                                    y: (contentView.height-buttonHeight)/2,
                                     width: size,
-                                    height: 44)
-        followButton.backgroundColor = .orange
+                                    height: buttonHeight)
+        
+     
         
         label.frame = CGRect(x: profileImageView.rigth+5,
                              y: 0,
