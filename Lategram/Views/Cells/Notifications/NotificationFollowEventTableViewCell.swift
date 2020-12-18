@@ -57,6 +57,7 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(followButton)
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
+        configureForFollow()
         
     }
     
@@ -83,10 +84,7 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
             switch state {
             case .following:
                 // show unfollow button
-                followButton.setTitle("Unfollow", for: .normal)
-                followButton.setTitleColor(.label, for: .normal)
-                followButton.layer.borderWidth = 1
-                followButton.layer.borderColor = UIColor.secondaryLabel.cgColor
+                configureForFollow()
             case .not_following:
                 // show follow button
                 followButton.setTitle("Follow", for: .normal)
@@ -102,6 +100,16 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         
         label.text = model.text
         profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
+        
+    }
+    
+    // Making the configureForFollow into a function
+    private func configureForFollow() {
+        followButton.setTitle("Unfollow", for: .normal)
+        followButton.setTitleColor(.label, for: .normal)
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor.secondaryLabel.cgColor
+        
         
     }
     
