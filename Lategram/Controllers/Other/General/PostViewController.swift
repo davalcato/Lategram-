@@ -15,10 +15,18 @@ class PostViewController: UIViewController {
     //TableView here
     private let tableView: UITableView = {
         let tableView = UITableView()
+        
+        // Register cells the tableVIew here
+        tableView.register(IGFeedPostTableViewCell.self, forCellReuseIdentifier: IGFeedPostTableViewCell.identifier)
+        tableView.register(IGFeedPostHeaderTableViewCell.self, forCellReuseIdentifier: IGFeedPostHeaderTableViewCell.identifier)
+        tableView.register(IGFeedPostActionsTableViewCell.self, forCellReuseIdentifier: IGFeedPostActionsTableViewCell.identifier)
+        tableView.register(IGFeedPostGeneralTableViewCell.self, forCellReuseIdentifier: IGFeedPostGeneralTableViewCell.identifier)
        
         return tableView
     
     }()
+    
+    // MARK: Init
     
     // Initializing with a UserPost here
     init(model: UserPost?) {
@@ -29,6 +37,27 @@ class PostViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // Rendering the model array here
+    
+    
+
+    /*
+     Section
+     - Header Model
+     
+     Section
+     - Post Cell Model
+    
+     Section
+     - Action Buttons Cell Model
+     
+     Section
+     - N Number of general Models for Comments
+     
+ 
+    */
+    
     
     // Added the tableView here 
     override func viewDidLoad() {
