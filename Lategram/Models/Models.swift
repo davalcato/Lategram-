@@ -27,9 +27,11 @@ struct UserCount {
     let following: Int
     let posts: Int
 }
-
-public enum UserPostType{
-    case photo, video
+// Adding some raw values here with String
+public enum UserPostType: String{
+   
+    case photo = "Photo"
+    case video = "Video"
     
 }
 /// Here is the user post

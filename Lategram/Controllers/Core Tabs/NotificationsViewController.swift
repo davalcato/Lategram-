@@ -142,8 +142,19 @@ final class NotificationsViewController: UIViewController, UITableViewDelegate, 
 // Extend the NotificationViewController and conform to the NotificationLikeEventTableViewCellDelegate
 extension NotificationsViewController: NotificationLikeEventTableViewCellDelegate {
     func didTapRelatedPostButton(model: UserNotification) {
-        print("Tapped post")
-        // Open the post when user taps
+        switch model.type {
+        case .like(let post):
+            // Create post controller here
+            let vc = PostViewController(model: post)
+            vc.title = post.postType.rawValue
+            vc.navigationItem.largeTitleDisplayMode = .never
+            
+            // Now pushing the ViewContoller onto the screen here
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .follow(_):
+            fatalError("Dev Issue: Should never get called")
+        }
         
     }
     

@@ -9,8 +9,10 @@ import UIKit
 
 class PostViewController: UIViewController {
     
+    // creating the model here
     private let model: UserPost?
     
+    //TableView here
     private let tableView: UITableView = {
         let tableView = UITableView()
        
@@ -18,6 +20,7 @@ class PostViewController: UIViewController {
     
     }()
     
+    // Initializing with a UserPost here
     init(model: UserPost?) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
@@ -27,6 +30,7 @@ class PostViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Added the tableView here 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
