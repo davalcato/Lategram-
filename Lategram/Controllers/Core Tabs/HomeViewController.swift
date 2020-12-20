@@ -8,12 +8,26 @@
 import UIKit
 import FirebaseAuth
 
+// Struct will wrap four of the render view models
+struct HomeFeedRenderViewModel {
+    let header: PostRenderViewModel
+    let post: PostRenderViewModel
+    let actions: PostRenderViewModel
+    let comments: PostRenderViewModel
+
+}
+
 class HomeViewController: UIViewController {
+    
+    private var feedRenderModels = [HomeFeedRenderViewModel]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        // registrating the IGFeedPostTableViewCell here...
+        // registrating the cells here...
         tableView.register(IGFeedPostTableViewCell.self, forCellReuseIdentifier: IGFeedPostTableViewCell.identifier)
+        tableView.register(IGFeedPostHeaderTableViewCell.self, forCellReuseIdentifier: IGFeedPostHeaderTableViewCell.identifier)
+        tableView.register(IGFeedPostActionsTableViewCell.self, forCellReuseIdentifier: IGFeedPostActionsTableViewCell.identifier)
+        tableView.register(IGFeedPostGeneralTableViewCell.self, forCellReuseIdentifier: IGFeedPostGeneralTableViewCell.identifier)
         
         return tableView
         
