@@ -250,7 +250,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 70
+        // Return at every fourth section
+        let subSection = section % 4
+        return subSection == 3 ? 70 : 0
     }
     
     
