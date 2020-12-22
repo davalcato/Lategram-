@@ -89,7 +89,7 @@ class IGFeedPostHeaderTableViewCell: UITableViewCell {
         profilePhotoImageView.layer.cornerRadius = size/2
         
         // Button is setup here
-        moreButton.frame = CGRect(x: contentView.width-size-2, y: 2, width: size, height: size)
+        moreButton.frame = CGRect(x: contentView.width-size, y: 2, width: size, height: size)
         
         usernameLabel.frame = CGRect(x: profilePhotoImageView.rigth+10,
                                      y: 2,

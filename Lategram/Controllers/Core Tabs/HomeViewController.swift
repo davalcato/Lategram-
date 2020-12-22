@@ -177,6 +177,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             switch model.header.renderType {
             case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier, for: indexPath) as! IGFeedPostHeaderTableViewCell
+                
+                // Calling the configure on the IGFeedPostHeaderTableViewCell here / passing in the model 
+                cell.configure(with: user)
+                
                 return cell
                 // If we're looking at the header cell we shouldn't see [cooments, actions, etc]
             case .comments, .actions, .primaryContent: return UITableViewCell()
@@ -188,7 +192,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             case .primaryContent(let post):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier, for: indexPath) as! IGFeedPostTableViewCell
                 
-                // This calls the PlayerLayer video 
+                // This calls the PlayerLayer video
                 cell.configure(with: post)
                 return cell
             case .comments, .actions, .header: return UITableViewCell()
