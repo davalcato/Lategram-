@@ -20,6 +20,8 @@ final class IGFeedPostTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = nil
+        // Clips to bounds so it doesn't overflow content on image AVPlayerLayer
+        imageView.clipsToBounds = true
         return imageView
         
     }()
@@ -32,7 +34,7 @@ final class IGFeedPostTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .secondarySystemBackground
+        
         // Set up a player layer here
         contentView.layer.addSublayer(playerLayer)
         
