@@ -35,8 +35,54 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createMocModels()
+        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        
+    }
+    
+    private func createMocModels() {
+        let user = User(username: "Joie",
+                        bio: "",
+                        name: (first: "", last: ""),
+                        profilePhoto: URL(string: "https://www.google.com")!,
+                        birth: Date(),
+                        gender: .male,
+                        count: UserCount(followers: 1, following: 1, posts: 1),
+                        joinDate: Date())
+        let post = UserPost(identifier: "",
+                            postType: .photo,
+                            thumbnailImage: URL(string: "https://www.google.com")!,
+                            postURL: URL(string: "https://www.google.com")!,
+                            caption: nil,
+                            likeCount: [],
+                            comments: [],
+                            createdDate: Date(),
+                            taggedUsers: [],
+                            owner: user)
+        
+        // A collection of PostComments here 
+        var comments = [PostComment]()
+        for x in 0..<2 {
+            comments.append(PostComment(identifier: "\(x)",
+                                        username: "Draya",
+                                        text: "I like all your post so far!",
+                                        createdDate: Date(),
+                                        // Likes is an empty collection []
+                                        likes: []))
+            
+        }
+        
+        // Create four models then append them here
+        for x in 0..<5 {
+            let viewModel = HomeFeedRenderViewModel(header: PostRenderViewModel(renderType: .header(provider: user)),
+                                                    post: PostRenderViewModel(renderType: .primaryContent(provider: post)),
+                                                    actions: PostRenderViewModel(renderType: .actions(provider: "")),
+                                                    comments: PostRenderViewModel(renderType: .comments(comments: comments)))
+            feedRenderModels.append(viewModel)
+            
+        }
         
     }
     
@@ -131,6 +177,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier, for: indexPath) as! IGFeedPostHeaderTableViewCell
                 return cell
+                // Return a cell instead of a number UITableViewCell
             case .comments, .actions, .primaryContent: return UITableViewCell()
             }
         }
