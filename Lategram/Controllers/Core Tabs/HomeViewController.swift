@@ -111,7 +111,6 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let x = section
         // Determining which model the user wants
@@ -153,7 +152,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 0
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let x = indexPath.section
@@ -245,7 +243,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return 50
         }
             return 0
-        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
+    
     }
 
 
