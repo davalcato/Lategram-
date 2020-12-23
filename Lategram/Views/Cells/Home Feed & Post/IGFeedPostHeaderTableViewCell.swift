@@ -8,7 +8,16 @@
 import SDWebImage
 import UIKit
 
+// Implementing the delegate to active the button
+protocol IGFeedPostHeaderTableViewCellDelegate: AnyObject {
+    
+    func didTapMoreButton()
+}
+
 class IGFeedPostHeaderTableViewCell: UITableViewCell {
+    
+    weak var delegate: IGFeedPostHeaderTableViewCellDelegate?
+    
     static let identifier = "IGFeedPostHeaderTableViewCell"
     
     // Create subviews
@@ -53,7 +62,7 @@ class IGFeedPostHeaderTableViewCell: UITableViewCell {
     }
     
     @objc private func didTapButton() {
-        
+        delegate?.didTapMoreButton()
         
     }
 

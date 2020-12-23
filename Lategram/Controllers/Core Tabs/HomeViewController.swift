@@ -178,8 +178,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier, for: indexPath) as! IGFeedPostHeaderTableViewCell
                 
-                // Calling the configure on the IGFeedPostHeaderTableViewCell here / passing in the model 
+                // Calling the configure on the IGFeedPostHeaderTableViewCell here / passing in the model
                 cell.configure(with: user)
+                
+                // Passing the delegate from IGFeedPostHeaderTableViewCell button
+                cell.delegate = self
                 
                 return cell
                 // If we're looking at the header cell we shouldn't see [cooments, actions, etc]
@@ -266,7 +269,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return subSection == 3 ? 70 : 0
     }
     
-    
+}
+// Extending the delegate here
+extension HomeViewController: IGFeedPostHeaderTableViewCellDelegate {
+    func didTapMoreButton() {
+        // Showing the actionsheet here
+        let actionSheet = UIAlertController(title: "Post Options",
+                                            message: nil,
+                                            preferredStyle: .actionSheet)
+        
+        // Presenting the actionsheet here
+        actionSheet.addAction(UIAlertAction(title: "Report Post",
+                                            style: .destructive,
+                                            handler: { [weak self] _ in}))
+        
+        // Passing the Post Identifier here
+        self.reportPost()
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        
+        present(actionSheet, animated: true)
     }
+    
+    // Report the post here
+    func reportPost() {
+        
+        
+    }
+    
+}
 
 
