@@ -29,7 +29,7 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     // This button is for direct messages
     private let sendButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "send"), for: .normal)
+        button.setImage(UIImage(systemName: "paperplane"), for: .normal)
         button.tintColor = .label
         
         return button
@@ -37,7 +37,6 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .systemGreen
         
         // Adding the three buttons (likeButton, commentButton, sendButton) to the contentView
         contentView.addSubview(likeButton)
