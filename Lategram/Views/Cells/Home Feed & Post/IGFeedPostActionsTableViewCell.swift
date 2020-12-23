@@ -7,7 +7,21 @@
 
 import UIKit
 
+// Attaching the three buttons to a delegate
+
+protocol IGFeedPostActionsTableViewCellDelegate: AnyObject {
+    func didTapLikeButton()
+    func didTapCommentButton()
+    func didTapSendButton()
+}
+
+
 class IGFeedPostActionsTableViewCell: UITableViewCell {
+    
+    // Creating instants of the IGFeedPostActionsTableViewCellDelegate on the class
+    weak var delegate: IGFeedPostActionsTableViewCellDelegate?
+    
+    
     static let identifier = "IGFeedPostActionsTableViewCell"
     
     // Add three buttons here
@@ -57,15 +71,15 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     
     // Adding action to the three buttons
     @objc private func didTapLikeButton() {
-        
+        delegate?.didTapLikeButton()
     }
     
     @objc private func didTapCommentButton() {
-        
+        delegate?.didTapCommentButton()
     }
     
     @objc private func didTapSendButton() {
-        
+        delegate?.didTapSendButton()
     }
     
     // Change to configure with post because of the three buttons
