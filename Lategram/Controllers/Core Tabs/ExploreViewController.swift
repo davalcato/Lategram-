@@ -29,7 +29,7 @@ class ExploreViewController: UIViewController {
     private var collectionView: UICollectionView?
     
     // Creating another collectioView here
-    private var tabbedSearchCollection: UICollectionView?
+    private var tabbedSearchCollectionView: UICollectionView?
     
     // Create the dim view
     private let dimmedView: UIView = {
@@ -47,21 +47,46 @@ class ExploreViewController: UIViewController {
         
         // Consolidating the searchbar here
         configureSearchbar()
-      
         // Configure the tabbedSearchCollection
         configureExploreCollection()
+        // Consolidating the configureDimmedView
+        configureDimmedView()
+        configureSearchbar()
+    }
+    
+    private func configureTabbedSearch() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: view.width/3, height: 52)
+        layout.scrollDirection = .horizontal
+        tabbedSearchCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tabbedSearchCollectionView?.backgroundColor = .yellow
         
-        // Add after the collectionView so it sits on top
+        tabbedSearchCollectionView?.isHidden = false
+        // Unwrapping the tabbedSearchCollectionView
+        guard let tabbedSearchCollectionView = tabbedSearchCollectionView else {
+            return
+            
+        }
+        
+        tabbedSearchCollectionView.delegate = self
+        tabbedSearchCollectionView.dataSource = self
+        
+        // View add subview
+        view.addSubview(tabbedSearchCollectionView)
+        
+    }
+    
+    
+    private func configureDimmedView() {
         view.addSubview(dimmedView)
-        
         // When user taps dimmedView area it dismiss the view
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didCancelSearch))
         gesture.numberOfTouchesRequired = 1
         gesture.numberOfTapsRequired = 1
-        
         // Added this gesture to the dim view
         dimmedView.addGestureRecognizer(gesture)
     }
+    
     // Consolidating the searchbar here
     private func configureSearchbar() {
         navigationController?.navigationBar.topItem?.titleView = searchBar
@@ -97,6 +122,10 @@ class ExploreViewController: UIViewController {
         collectionView?.frame = view.bounds
         // Set the frames
         dimmedView.frame = view.bounds
+//        tabbedSearchCollectionView?.frame = CGRect(x: 0,
+//                                                   y: view.safeAreaInsets.top,
+//                                                   width: view.width,
+//                                                   height: 72)
     }
     
 }
@@ -127,9 +156,13 @@ extension ExploreViewController: UISearchBarDelegate {
         // Animate the dim view here
         dimmedView.isHidden = false
         // Now animate the alpha
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.2, animations: {
             self.dimmedView.alpha = 0.4
-            
+        }) { done in
+            // Once the animation is done
+            if done {
+                self.tabbedSearchCollectionView?.isHidden = false
+            }
         }
     }
     
@@ -139,7 +172,7 @@ extension ExploreViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         // Getting rid of the cancel button
         navigationItem.rightBarButtonItem = nil
-
+        self.tabbedSearchCollectionView?.isHidden = true
         // Now animate the alpha
         UIView.animate(withDuration: 0.2, animations: {
             self.dimmedView.alpha = 0
@@ -153,19 +186,28 @@ extension ExploreViewController: UISearchBarDelegate {
             }
         }
     }
-    
+    // Perform the search in the backend
     private func query(_ text: String) {
-        // Perform the search in the backend
+        
         
     }
 }
 
 extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        // Implementing the DataSource
+        if collectionView == tabbedSearchCollectionView {
+            return 0
+        }
+        
         return 100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == tabbedSearchCollectionView {
+            return UICollectionViewCell()
+        }
         
         // Gaurd let be were cassing it Dequeing the cell here
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else {
@@ -181,6 +223,11 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     // Implementing the UICollectionViewDelegate so when tapped cell it opens postView controller
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        if collectionView == tabbedSearchCollectionView {
+            // Change search context
+            return
+        }
         
         // Displacing the PostViewContioller 
         let user = User(username: "Joie",
