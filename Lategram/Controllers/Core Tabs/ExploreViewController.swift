@@ -16,8 +16,11 @@ class ExploreViewController: UIViewController {
         searchBar.backgroundColor = .secondarySystemBackground
         
         return searchBar
-        
     }()
+    
+    // Creating the property that will come from Firebase
+    private var models = [UserPost]()
+    
     
     // Moc models of the collectionView here
     
@@ -34,6 +37,11 @@ class ExploreViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
+        
+        // Three column set up
+        layout.itemSize = CGSize(width: (view.width-4)/3, height: (view.width-4)/3)
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         // Registering cells here
@@ -51,6 +59,13 @@ class ExploreViewController: UIViewController {
         
         // Assigned the SearchBar delegate to get some view action
         searchBar.delegate = self
+    }
+    
+    // Assigned frames to the search collectionView
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // This shows the images in the search collectionView
+        collectionView?.frame = view.bounds
     }
     
 }
@@ -95,7 +110,7 @@ extension ExploreViewController: UISearchBarDelegate {
 
 extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -107,9 +122,20 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         // After cassing it next configure the cell
 //        cell.configure(with: <#T##UserPost#>)
-        
-        return cell 
+        cell.configure(debug: "test")
+        return cell
     }
+    
+    // Implementing the UICollectionViewDelegate so when tapped cell it opens postView controller
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        // Now create the viewController
+        // let model = models[indexPath.row]
+        let vc = PostViewController(model: nil)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
 }
 
