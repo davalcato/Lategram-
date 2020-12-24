@@ -27,6 +27,16 @@ class ExploreViewController: UIViewController {
     
     // Add a collectView here...
     private var collectionView: UICollectionView?
+    
+    // Create the dim view
+    private let dimmedView: UIView = {
+        // Black view
+        let view = UIView()
+        view.backgroundColor = .black
+        view.isHidden = true
+        view.alpha = 0
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +69,9 @@ class ExploreViewController: UIViewController {
         
         // Assigned the SearchBar delegate to get some view action
         searchBar.delegate = self
+        
+        // Add after the collectionView so it sits on top
+        view.addSubview(dimmedView)
     }
     
     // Assigned frames to the search collectionView
@@ -66,6 +79,8 @@ class ExploreViewController: UIViewController {
         super.viewDidLayoutSubviews()
         // This shows the images in the search collectionView
         collectionView?.frame = view.bounds
+        // Set the frames
+        dimmedView.frame = view.bounds
     }
     
 }
@@ -92,6 +107,14 @@ extension ExploreViewController: UISearchBarDelegate {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(didCancelSearch))
+        
+        // Animate the dim view here
+        dimmedView.isHidden = false
+        // Now animate the alpha
+        UIView.animate(withDuration: 0.2) {
+            self.dimmedView.alpha = 0.4
+            
+        }
     }
     
     // Creating the selector here
@@ -100,6 +123,19 @@ extension ExploreViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         // Getting rid of the cancel button
         navigationItem.rightBarButtonItem = nil
+
+        // Now animate the alpha
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimmedView.alpha = 0
+            
+            // It takes a parameter here
+        }) { done in
+            
+            // Once the animation is done we hidden it in terms of the actual property
+            if done {
+                self.dimmedView.isHidden = true
+            }
+        }
     }
     
     private func query(_ text: String) {
