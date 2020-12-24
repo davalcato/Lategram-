@@ -130,12 +130,32 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        // Now create the viewController
-        // let model = models[indexPath.row]
-        let vc = PostViewController(model: nil)
+        // Displacing the PostViewContioller 
+        let user = User(username: "Joie",
+                        bio: "",
+                        name: (first: "", last: ""),
+                        profilePhoto: URL(string: "https://www.google.com")!,
+                        birth: Date(),
+                        gender: .male,
+                        count: UserCount(followers: 1, following: 1, posts: 1),
+                        joinDate: Date())
+        let post = UserPost(identifier: "",
+                            postType: .photo,
+                            thumbnailImage: URL(string: "https://www.google.com")!,
+                            postURL: URL(string: "https://www.google.com")!,
+                            caption: nil,
+                            likeCount: [],
+                            comments: [],
+                            createdDate: Date(),
+                            taggedUsers: [],
+                            owner: user)
+        
+        let vc = PostViewController(model: post)
+        
+        // Setting the Post title
+        vc.title = post.postType.rawValue
         navigationController?.pushViewController(vc, animated: true)
     }
-    
     
 }
 
