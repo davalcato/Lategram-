@@ -72,6 +72,15 @@ class ExploreViewController: UIViewController {
         
         // Add after the collectionView so it sits on top
         view.addSubview(dimmedView)
+        
+        // When user taps dimmedView area it dismiss the view
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didCancelSearch))
+        gesture.numberOfTouchesRequired = 1
+        gesture.numberOfTapsRequired = 1
+        
+        // Added this gesture to the dim view
+        dimmedView.addGestureRecognizer(gesture)
+        
     }
     
     // Assigned frames to the search collectionView
