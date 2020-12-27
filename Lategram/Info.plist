@@ -60,5 +60,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs to access your Photo Library to use Video!</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app saves photos to your photo library.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app uses pictures from your photo library for facial recognition.</string>
 </dict>
 </plist>
