@@ -45,6 +45,7 @@ class CameraViewController: UIViewController {
         // Presenting camera here
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
         
         // Assign picker delegate to self
         picker.delegate = self
@@ -66,7 +67,7 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         
         
         // Taking a reference of the image
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as?
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as?
         UIImage else {
                 return
         }
