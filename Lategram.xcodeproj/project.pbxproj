@@ -231,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				75481D922577546F00FCE09D /* Other */,
+				75481D88257750D800FCE09D /* Storyboards */,
+				75474F6D257748F800BDF2D5 /* Assets.xcassets */,
 				75481D912577538600FCE09D /* Core Tabs */,
 			);
 			path = Controllers;
@@ -241,8 +243,6 @@
 			children = (
 				75B9299D2585A0D7000C0DEB /* CollectionView Headers */,
 				75DBDC792583219100E1946F /* Cells */,
-				75474F6D257748F800BDF2D5 /* Assets.xcassets */,
-				75481D88257750D800FCE09D /* Storyboards */,
 				7526343C258AD13600BD38EF /* NoNotificationsView.swift */,
 			);
 			path = Views;

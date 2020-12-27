@@ -103,10 +103,38 @@
                     <view key="view" contentMode="scaleToFill" id="4sI-1J-c7C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJm-XE-Tge">
+                                <rect key="frame" x="30" y="741" width="354" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="bUO-b5-yaf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapTakePicture" destination="SaX-CE-d2d" eventType="touchUpInside" id="Oe4-kO-Wal"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FAQ-ST-0lm">
+                                <rect key="frame" x="20" y="108" width="374" height="613"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iGV-aw-yzk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tJm-XE-Tge" firstAttribute="top" secondItem="FAQ-ST-0lm" secondAttribute="bottom" constant="20" id="85N-j6-Ir1"/>
+                            <constraint firstItem="iGV-aw-yzk" firstAttribute="bottom" secondItem="tJm-XE-Tge" secondAttribute="bottom" constant="20" id="LvT-RA-ylb"/>
+                            <constraint firstItem="iGV-aw-yzk" firstAttribute="trailing" secondItem="tJm-XE-Tge" secondAttribute="trailing" constant="30" id="OF4-SG-Y2c"/>
+                            <constraint firstItem="tJm-XE-Tge" firstAttribute="leading" secondItem="iGV-aw-yzk" secondAttribute="leading" constant="30" id="cG6-8s-Ydl"/>
+                            <constraint firstItem="iGV-aw-yzk" firstAttribute="trailing" secondItem="FAQ-ST-0lm" secondAttribute="trailing" constant="20" id="hot-vP-8BW"/>
+                            <constraint firstItem="FAQ-ST-0lm" firstAttribute="leading" secondItem="iGV-aw-yzk" secondAttribute="leading" constant="20" id="oKQ-Yu-3MH"/>
+                            <constraint firstItem="FAQ-ST-0lm" firstAttribute="top" secondItem="iGV-aw-yzk" secondAttribute="top" constant="20" id="obn-jZ-gWq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="35r-BM-fuH"/>
+                    <connections>
+                        <outlet property="button" destination="tJm-XE-Tge" id="6fo-sI-ysO"/>
+                        <outlet property="imageView" destination="FAQ-ST-0lm" id="CBt-za-fHQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQI-ZH-mUk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,13 +9,22 @@ import AVFoundation
 import UIKit
 
 class CameraViewController: UIViewController {
+    
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var button: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        // Button color
+        button.backgroundColor = .systemBlue
+        button.setTitle("Take Picture", for: .normal)
+        
     }
     
-    private func didTapTakePicture() {
+    @IBAction func didTapTakePicture() {
         
         
     }
