@@ -12,6 +12,8 @@ target 'Lategram' do
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Storage'
   pod 'SDWebImage'
+  pod 'ProgressHUD'
+
 
 
   target 'LategramTests' do

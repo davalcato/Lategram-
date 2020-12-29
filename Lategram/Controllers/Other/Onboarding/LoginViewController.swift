@@ -7,6 +7,7 @@
 
 import SafariServices
 import UIKit
+import ProgressHUD
 
 
 class LoginViewController: UIViewController {
@@ -206,23 +207,22 @@ class LoginViewController: UIViewController {
         passwordField.resignFirstResponder()
         usernameEmailField.resignFirstResponder()
         
+        // Progress spinner here 
+        ProgressHUD.show("Waiting", interaction: false)
+        
         // double check that we have text and password great then count 8...
         guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
                 return
-                
         }
         
         var username: String?
         var email: String?
         
-        
-        
         // here is the login functionality
         if usernameEmail.contains("@"), usernameEmail.contains(".") {
             // here assume its a email
             email = usernameEmail
-            
             
         }
         else {
@@ -238,6 +238,7 @@ class LoginViewController: UIViewController {
                 if success {
                     // user logged in
                     self.dismiss(animated: true, completion: nil)
+                    ProgressHUD.showSuccess("Successful")
                     
                 }
                 else {
@@ -253,10 +254,9 @@ class LoginViewController: UIViewController {
                                         handler: nil))
                     
                     self.present(alert, animated: true)
-                    
+                    ProgressHUD.showError()
                 }
             }
-            
         }
     }
     
@@ -283,6 +283,7 @@ class LoginViewController: UIViewController {
         vc.title = "Create Account"
         // here is where the create button leads to the create account screen...
         present(UINavigationController(rootViewController: vc), animated: true)
+        
     }
     
 }
