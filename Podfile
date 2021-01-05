@@ -13,7 +13,7 @@ target 'Lategram' do
   pod 'Firebase/Storage'
   pod 'SDWebImage'
   pod 'ProgressHUD'
-
+  pod 'ImagePicker'
 
 
   target 'LategramTests' do

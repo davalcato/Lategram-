@@ -17,6 +17,8 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Camera"
+        
         // Change imageView background
         imageView.backgroundColor = .secondarySystemBackground
         navigationController?.setNavigationBarHidden(true, animated: false)

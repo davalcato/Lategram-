@@ -188,7 +188,6 @@ extension EditProfileViewController: FormTableViewCellDelegate {
         updatedModel.label
         print(updatedModel.value ?? "nil")
     }
-    
-    
+
     
 }

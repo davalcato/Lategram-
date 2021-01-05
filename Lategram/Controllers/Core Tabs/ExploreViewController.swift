@@ -7,8 +7,11 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+class ExploreViewController: UIViewController, UITableViewDelegate {
     
+    // Create API caller to get data on the network
+    private let apiCaller = APICaller()
+
     // create a search bar here...
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -21,9 +24,7 @@ class ExploreViewController: UIViewController {
     // Creating the property that will come from Firebase
     private var models = [UserPost]()
     
-    
     // Moc models of the collectionView here
-    
     
     // Add a collectView here...
     private var collectionView: UICollectionView?
@@ -39,11 +40,24 @@ class ExploreViewController: UIViewController {
         view.isHidden = true
         view.alpha = 0
         return view
+       
     }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        return tableView
+    }()
+    
+    private var data = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+     
+       
+        tableView.delegate = self
         
         // Consolidating the searchbar here
         configureSearchbar()
@@ -53,6 +67,7 @@ class ExploreViewController: UIViewController {
         configureDimmedView()
         configureSearchbar()
     }
+    
     
     private func configureTabbedSearch() {
         let layout = UICollectionViewFlowLayout()
@@ -114,13 +129,32 @@ class ExploreViewController: UIViewController {
         
     }
     
-    
     // Assigned frames to the search collectionView
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+//        tableView.frame = view.bounds
+//        apiCaller.fetchData(pagination: false, completion: { [weak self] result in
+//            switch result {
+//            case .success(let data):
+//            self?.data.append(contentsOf: data)
+//            
+//           // code here 4
+//                
+//                DispatchQueue.main.async {
+//                    self?.tableView.reloadData()
+//                }
+//                
+//            case .failure(_):
+//                break
+//            
+//            }
+//            
+//        })
+        
         // This shows the images in the search collectionView
         collectionView?.frame = view.bounds
-        // Set the frames
+        
+        // Sets the frames
         dimmedView.frame = view.bounds
 //        tabbedSearchCollectionView?.frame = CGRect(x: 0,
 //                                                   y: view.safeAreaInsets.top,
@@ -168,11 +202,14 @@ extension ExploreViewController: UISearchBarDelegate {
     
     // Creating the selector here
     @objc private func didCancelSearch() {
+        
         // Getting rid of the keyboard here
         searchBar.resignFirstResponder()
+        
         // Getting rid of the cancel button
         navigationItem.rightBarButtonItem = nil
         self.tabbedSearchCollectionView?.isHidden = true
+        
         // Now animate the alpha
         UIView.animate(withDuration: 0.2, animations: {
             self.dimmedView.alpha = 0
@@ -193,7 +230,8 @@ extension ExploreViewController: UISearchBarDelegate {
     }
 }
 
-extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // Implementing the DataSource
@@ -201,7 +239,7 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
             return 0
         }
         
-        return 100
+        return 150
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

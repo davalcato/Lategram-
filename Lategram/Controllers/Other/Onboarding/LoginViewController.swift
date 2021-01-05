@@ -207,8 +207,10 @@ class LoginViewController: UIViewController {
         passwordField.resignFirstResponder()
         usernameEmailField.resignFirstResponder()
         
-        // Progress spinner here 
-        ProgressHUD.show("Waiting", interaction: false)
+        print("Login")
+        
+        // Progress spinner here
+        ProgressHUD.show("Waiting...", interaction: false)
         
         // double check that we have text and password great then count 8...
         guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
@@ -238,12 +240,18 @@ class LoginViewController: UIViewController {
                 if success {
                     // user logged in
                     self.dismiss(animated: true, completion: nil)
-                    ProgressHUD.showSuccess("Successful")
                     
+                    // Show successful login
+                    ProgressHUD.showSuccess("Successful")
+                   
                 }
+            
                 else {
+                    
+                    ProgressHUD.showError("False")
                     // error occurred
                     let alert = UIAlertController(
+                        
                         title: "Log In Error",
                         message: "We were unable to log you in.",
                         preferredStyle: .alert)
@@ -254,8 +262,8 @@ class LoginViewController: UIViewController {
                                         handler: nil))
                     
                     self.present(alert, animated: true)
-                    ProgressHUD.showError()
-                }
+                    
+                } 
             }
         }
     }
@@ -297,8 +305,7 @@ extension LoginViewController: UITextFieldDelegate {
         else if textField == passwordField {
             didTapLoginButton()
         }
-            
-            
+        
         return true
     }
     

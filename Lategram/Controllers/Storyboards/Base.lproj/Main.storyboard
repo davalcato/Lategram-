@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="-296" y="1454"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Camera-->
         <scene sceneID="PeG-D7-7jT">
             <objects>
                 <viewController id="SaX-CE-d2d" customClass="CameraViewController" customModule="Lategram" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,7 +130,9 @@
                             <constraint firstItem="FAQ-ST-0lm" firstAttribute="top" secondItem="iGV-aw-yzk" secondAttribute="top" constant="20" id="obn-jZ-gWq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="35r-BM-fuH"/>
+                    <navigationItem key="navigationItem" title="Camera" id="35r-BM-fuH">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="drm-OF-mn5"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="button" destination="tJm-XE-Tge" id="6fo-sI-ysO"/>
                         <outlet property="imageView" destination="FAQ-ST-0lm" id="CBt-za-fHQ"/>
@@ -177,7 +179,7 @@
         <scene sceneID="Mcq-r3-9Mc">
             <objects>
                 <navigationController id="Tq3-r4-Q4Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus" catalog="system" id="bc1-qo-Wwn"/>
+                    <tabBarItem key="tabBarItem" title="" image="camera" catalog="system" id="bc1-qo-Wwn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6pY-cq-28G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -226,11 +228,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
