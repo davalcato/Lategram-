@@ -9,8 +9,13 @@ import UIKit
 
 class ExploreViewController: UIViewController, UITableViewDelegate {
     
+    var items = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    
+    // Flag the BatchFetch
+    var fetchingMore = false
+    
     // Create API caller to get data on the network
-    private let apiCaller = APICaller()
+//    private let apiCaller = APICaller()
 
     // create a search bar here...
     private let searchBar: UISearchBar = {
@@ -43,21 +48,12 @@ class ExploreViewController: UIViewController, UITableViewDelegate {
        
     }()
     
-    private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        return tableView
-    }()
-    
     private var data = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
      
-       
-        tableView.delegate = self
         
         // Consolidating the searchbar here
         configureSearchbar()
@@ -132,23 +128,26 @@ class ExploreViewController: UIViewController, UITableViewDelegate {
     // Assigned frames to the search collectionView
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        
+        
 //        tableView.frame = view.bounds
 //        apiCaller.fetchData(pagination: false, completion: { [weak self] result in
 //            switch result {
 //            case .success(let data):
 //            self?.data.append(contentsOf: data)
-//            
+//
 //           // code here 4
-//                
+//
 //                DispatchQueue.main.async {
 //                    self?.tableView.reloadData()
 //                }
-//                
+//
 //            case .failure(_):
 //                break
-//            
+//
 //            }
-//            
+//
 //        })
         
         // This shows the images in the search collectionView
@@ -292,6 +291,47 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
         // Setting the Post title
         vc.title = post.postType.rawValue
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+//        print("offsetY: \(offsetY) | contentHeight: \(contentHeight)")
+        
+        // Subtracting height of the phone
+        if offsetY > contentHeight - scrollView.frame.height {
+            
+            // Limit the fetch
+            if !fetchingMore {
+                
+                // Calling the function here
+                beginBatchFetch()
+                
+            }
+            
+        }
+        
+    }
+    
+    func beginBatchFetch() {
+        fetchingMore = true
+        print("beginbatchFetch!")
+        
+        // Faking the API Call here
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            
+            let newItems = (self.items.count...self.items.count + 12).map { index in index }
+            
+            self.items.append(contentsOf: newItems)
+            
+            
+            self.fetchingMore = false
+            
+            self.collectionView?.reloadData()
+            
+         
+            
+        })
     }
     
 }
