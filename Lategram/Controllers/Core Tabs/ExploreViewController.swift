@@ -11,6 +11,8 @@ class ExploreViewController: UIViewController, UITableViewDelegate {
     
     var items = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     
+    var refreshControl: UIRefreshControl!
+    
     // Flag the BatchFetch
     var fetchingMore = false
     
@@ -53,8 +55,8 @@ class ExploreViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-     
         
+    
         // Consolidating the searchbar here
         configureSearchbar()
         // Configure the tabbedSearchCollection
@@ -62,6 +64,26 @@ class ExploreViewController: UIViewController, UITableViewDelegate {
         // Consolidating the configureDimmedView
         configureDimmedView()
         configureSearchbar()
+        
+        
+        refreshControl = UIRefreshControl()
+        if #available(iOS 10.0, *) {
+            
+            collectionView?.refreshControl = refreshControl
+        } else {
+            collectionView?.addSubview(refreshControl)
+            
+        }
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        
+        
+        beginBatchFetch()
+        
+    }
+    
+    @objc func handleRefresh() {
+        print("Refresh!")
+        
     }
     
     
@@ -298,7 +320,7 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
         let contentHeight = scrollView.contentSize.height
 //        print("offsetY: \(offsetY) | contentHeight: \(contentHeight)")
         
-        // Subtracting height of the phone
+        // Subtracting the height of the phone
         if offsetY > contentHeight - scrollView.frame.height {
             
             // Limit the fetch
